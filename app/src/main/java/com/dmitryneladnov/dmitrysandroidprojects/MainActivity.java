@@ -1,6 +1,7 @@
 package com.dmitryneladnov.dmitrysandroidprojects;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -10,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RecyclerView list = findViewById(R.id.recycler_view_project);
 
         Project[] projects = {
                 new Project("Getting Started App",
@@ -36,5 +39,9 @@ public class MainActivity extends AppCompatActivity {
                         R.drawable.dev_buffet
                 ),
         };
+
+        ProjectsAdapter adapter = new ProjectsAdapter(projects);
+
+        list.setAdapter(adapter);
     }
 }
